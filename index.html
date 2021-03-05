@@ -84,8 +84,8 @@
     <h1>auto-download</h1>
     <p class="callout" style="margin-top: 2rem;">
       The auto-download feature will automatically start the download process for the first link with the "download"
-      attribute set. It will also make a best guess to see if the user is on a mobile device using the browser's user
-      agent. If it detects mobile it will disable the auto download feature and instead display a custom notification.
+      attribute set. It will also make a best guess to see if the user is on a mobile device by using the browser's user
+      agent string. If it detects mobile it will disable the auto download feature and instead display a custom notification.
     </p>
     <div class="demo">
       <h2>Demo</h2>
@@ -110,14 +110,14 @@
 
     <h2>What is this demo?</h2>
 
-    <p>If you are viewing this demo on non-mobile device such as a desktop or laptop then a file should have
-      automatically started. If you are visiting from a mobile device you should have received a toast notification that
-      asked if you wanted us to email you the download link.</p>
+    <p>If you are viewing this demo on a non-mobile device such as a desktop or laptop then a file should have
+      automatically started downloading. If you are visiting from a mobile device you should have received a toast notification that
+      asked if you wanted an email alternative.</p>
 
-    <p>The purpose of this demo is to find a reasonable fallback for mobile users. Sometimes, the file downloads that we
+    <p>The purpose of this demo is to find a reasonable fallback for mobile users. Sometimes the file downloads that we
       offer don't work on mobile devices. However, we don't want to prevent the user from accessing links if our mobile
-      detection doesn't guess correctly. This is a good progressive enhancement / fallback where we can give mobile
-      users a good experience without denying them access to the file if we've guess incorrectly on the device they are
+      detection doesn't guess correctly. This is a good progressive enhancement opportunity where we can give mobile
+      users a good experience without denying them access to the file if we make an incorrect assumption on whic device they are
       currently using.</p>
 
     <h2>How does it work?</h2>
