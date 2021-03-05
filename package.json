@@ -1,0 +1,12 @@
+{
+  "name": "auto-download-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "surge -d heymp-auto-download.surge.sh ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

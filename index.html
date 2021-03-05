@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/sites/all/libraries/rh_iconfont/dist/fonts/web_icon/rh-web-iconfont.woff" as="font"
+    type="font/woff" crossorigin>
+  <link rel="preload"
+    href="https://static.redhat.com/libs/redhat/redhat-font/3/webfonts/RedHatText/RedHatText-Regular.woff2" as="font"
+    type="font/woff2" crossorigin>
+  <link rel="preload"
+    href="https://static.redhat.com/libs/redhat/redhat-font/3/webfonts/RedHatText/RedHatText-Medium.woff2" as="font"
+    type="font/woff2" crossorigin>
+  <link rel="preload"
+    href="https://static.redhat.com/libs/redhat/redhat-font/3/webfonts/RedHatDisplay/RedHatDisplay-Regular.woff2"
+    as="font" type="font/woff2" crossorigin>
+  <link rel="preload"
+    href="https://static.redhat.com/libs/redhat/redhat-font/3/webfonts/RedHatDisplay/RedHatDisplay-Medium.woff2"
+    as="font" type="font/woff2" crossorigin>
+  <link rel="preload"
+    href="https://static.redhat.com/libs/redhat/redhat-font/3/webfonts/RedHatDisplay/RedHatDisplay-Bold.woff2" as="font"
+    type="font/woff2" crossorigin>
+  <link type="text/css" rel="stylesheet"
+    href="https://static.redhat.com/libs/redhat/redhat-font/3/webfonts/red-hat-font.css" media="all" />
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: RedHatText, "Red Hat Text", Overpass, Overpass, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.444;
+      color: #131313;
+      background-color: #fff;
+      font-size: 18px;
+    }
+
+    pfe-card {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    pfe-band.main {
+      min-height: calc(100vh - calc(var(--pfe-theme--container-spacer, 1rem) * 4) - 2px);
+    }
+
+    p {
+      max-width: 55rem;
+      margin: auto;
+      margin-top: 2rem;
+    }
+
+    .callout {
+      font-size: 24px;
+    }
+
+    .demo {
+      margin-top: 5rem;
+      margin-bottom: 8rem;
+    }
+
+    img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      margin: auto;
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <pfe-band class="main">
+    <h1>auto-download</h1>
+    <p class="callout" style="margin-top: 2rem;">
+      The auto-download feature will automatically start the download process for the first link with the "download"
+      attribute set. It will also make a best guess to see if the user is on a mobile device using the browser's user
+      agent. If it detects mobile it will disable the auto download feature and instead display a custom notification.
+    </p>
+    <div class="demo">
+      <h2>Demo</h2>
+      <pfe-card color="lightest">
+        <h2 slot="pfe-card--header">A gift for you</h2>
+        <p>As a thank you for checking out this demo, here is one of my favorite gifs. If the download has not
+          automatically started downloading please click the "Download File" button below. Thanks again!</p>
+        <div slot="pfe-card--footer">
+          <auto-download>
+            <div slot="mobile">
+              <p>Hi there, it looks like you're on mobile. Do you want us to just email you the link?</p>
+              <div><a href="#" onClick="alert('Emailing you the link')">Yes email me!</a></div>
+            </div>
+            <pfe-cta>
+              <a href="./elmo.gif" download="it-worked">Download File</a>
+            </pfe-cta>
+          </auto-download>
+        </div>
+      </pfe-card>
+    </div>
+
+
+    <h2>What is this demo?</h2>
+
+    <p>If you are viewing this demo on non-mobile device such as a desktop or laptop then a file should have
+      automatically started. If you are visiting from a mobile device you should have received a toast notification that
+      asked if you wanted us to email you the download link.</p>
+
+    <p>The purpose of this demo is to find a reasonable fallback for mobile users. Sometimes, the file downloads that we
+      offer don't work on mobile devices. However, we don't want to prevent the user from accessing links if our mobile
+      detection doesn't guess correctly. This is a good progressive enhancement / fallback where we can give mobile
+      users a good experience without denying them access to the file if we've guess incorrectly on the device they are
+      currently using.</p>
+
+    <h2>How does it work?</h2>
+
+    <p>By using a basic regex on the browser's user agent string. It's traditionally unreliable because it can be easily
+      changed by the user, however, since this is just used to progressively enhance the user experience it should be
+      fine.</p>
+
+    <pfe-codeblock code-language="js" style="margin:auto;">
+      <pre codeblock-container>
+        <code>
+get isMobile() {
+  return (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  )
+}
+        </code>
+      </pre>
+    </pfe-codeblock>
+
+    <h2>How can I test the mobile experience?</h2>
+
+    <p><b>1. On a Chrome web browser open the dev tools by right clicking anywhere on the screen and select "Inspect".</b></p>
+
+    <img src="./assets/open-inspector.png">
+
+    <p><b>2.When dev tools is open click the mobile device emulator icon.</b></p>
+
+    <img src="./assets/inspector.png">
+
+    <p><b>3. You are now in mobile mode. Refresh the page and you will see a little notification asking if you would like the
+      file emailed to you.</b></p>
+
+    <img src="./assets/notification.png" style="max-width: 300px;">
+
+  </pfe-band>
+
+  <script type="module" src="./index.js"></script>
+</body>
+
+</html>
