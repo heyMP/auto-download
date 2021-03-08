@@ -44,6 +44,11 @@
       margin: auto;
     }
 
+    pfe-codeblock {
+      max-width: calc(100vw - 4rem);
+      width: auto;
+    }
+
     pfe-band.main {
       min-height: calc(100vh - calc(var(--pfe-theme--container-spacer, 1rem) * 4) - 2px);
     }
@@ -83,11 +88,6 @@
 <body>
   <pfe-band class="main">
     <h1>auto-download</h1>
-    <p class="callout" style="margin-top: 2rem;">
-      The auto-download feature will automatically start the download process for the first link with the "download"
-      attribute set. It will also make a best guess to see if the user is on a mobile device by using the browser's user
-      agent string. If it detects mobile it will disable the auto download feature and instead display a custom notification.
-    </p>
     <div class="demo">
       <h2>Demo</h2>
       <pfe-card color="lightest">
@@ -108,6 +108,12 @@
       </pfe-card>
     </div>
 
+    <p class="callout" style="margin: 2rem auto;">
+      The auto-download feature will automatically start the download process for the first link with the "download"
+      attribute set. It will also make a best guess to see if the user is on a mobile device by using the browser's user
+      agent string. If it detects mobile it will disable the auto download feature and instead display a custom notification.
+    </p>
+
 
     <h2>What is this demo?</h2>
 
@@ -127,7 +133,7 @@
       changed by the user, however, since this is just used to progressively enhance the user experience it should be
       fine.</p>
 
-    <pfe-codeblock code-language="js" style="margin:auto;width:100%;max-width:800px;">
+    <pfe-codeblock code-language="js" style="margin:auto;width:auto;">
       <pre codeblock-container>
         <code>
 get isMobile() {
@@ -145,16 +151,16 @@ get isMobile() {
 
     <p><b>1. On a Chrome web browser open the dev tools by right clicking anywhere on the screen and select "Inspect".</b></p>
 
-    <!-- <img src="./assets/open-inspector.png"> -->
+    <img src="./assets/open-inspector.png">
 
     <p><b>2.When dev tools is open click the mobile device emulator icon.</b></p>
 
-    <!-- <img src="./assets/inspector.png"> -->
+    <img src="./assets/inspector.png">
 
     <p><b>3. You are now in mobile mode. Refresh the page and you will see a little notification asking if you would like the
       file emailed to you.</b></p>
 
-    <!-- <img src="./assets/notification.png" style="max-width: 300px;"> -->
+    <img src="./assets/notification.png" style="max-width: 300px;">
 
   </pfe-band>
 
