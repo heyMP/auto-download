@@ -35,10 +35,12 @@
       color: #131313;
       background-color: #fff;
       font-size: 18px;
+      overflow-x: hidden;
     }
 
     pfe-card {
       max-width: 500px;
+      width: auto;
       margin: auto;
     }
 
@@ -62,12 +64,13 @@
     }
 
     img {
-      width: 100%;
+      width: auto;
       max-width: 600px;
       height: auto;
       margin: auto;
       display: block;
       margin-bottom: 2rem;
+      display: none;
     }
 
     *:is(h1,h2,h3):not([slot]) {
@@ -124,7 +127,7 @@
       changed by the user, however, since this is just used to progressively enhance the user experience it should be
       fine.</p>
 
-    <pfe-codeblock code-language="js" style="margin:auto;">
+    <pfe-codeblock code-language="js" style="margin:auto;width:100%;max-width:800px;">
       <pre codeblock-container>
         <code>
 get isMobile() {
